@@ -50,7 +50,7 @@ queuing system will likely influence the estimates.
 Exercise
 --------
 
-Modify the send-recv program to experiment with different communication patters.
+Modify the send-recv program to experiment with different communication patterns.
 For example:
 
 1. 'round-robin', where each `rank` sends to `rank+1`, which duly receives,
@@ -62,8 +62,8 @@ For example:
     ```
 	0 <-> 1
 	^     ^
-	|	  |
-	v	  v
+	|     |
+	v.    v
 	2 <-> 3
     ```
 
