@@ -6,13 +6,20 @@ CC=mpiicc
 
 CFLAGS=-Wall
 
-EXES=hello_world_c.exe
+EXES=hello_world_c
 
 
-hello_world_c.exe: hello_world.c
+hello_world_c: hello_world.c
 	$(CC) $(CFLAGS) -o $@ $^
 
 all: $(EXES)
+
+run:
+	sbatch mpi_submit
+	watch -n 1 squeue -u az16408
+
+cat:
+	cat OUT.o
 
 .PHONY: clean all
 
