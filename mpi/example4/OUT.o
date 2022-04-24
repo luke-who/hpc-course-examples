@@ -1,0 +1,24 @@
+Intel(R) Parallel Studio XE 2020 Update 4 for Linux*
+Copyright 2009-2020 Intel Corporation.
+Running on host compute106.bc4.acrc.priv
+Time is Sun Apr 24 20:53:14 BST 2022
+Directory is /user/home/az16408/hpc-course-examples/mpi/example4
+Slurm job ID is 10244316
+
+This job runs on the following machines:
+compute106
+
+
+Running bugged-non-blocking.exe
+elapsed time 0.000000 (s):	process 0, calling non-blocking MPI_IRecv() (source rank 1)
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+elapsed time 0.000126 (s):	MPI_Irecv() has returned, but message buffer contains: ÀŸ
+elapsed time 0.000131 (s):	process 0, calling non-blocking MPI_IRecv() (source rank 2)
+elapsed time 0.000133 (s):	MPI_Irecv() has returned, but message buffer contains: ÀŸ
+elapsed time 0.000136 (s):	process 0, calling non-blocking MPI_IRecv() (source rank 3)
+elapsed time 0.000137 (s):	MPI_Irecv() has returned, but message buffer contains: ÀŸ
+
+timing resolution is 0.000000 (s)
+Abort(1) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+slurmstepd: error: *** STEP 10244316.0 ON compute106 CANCELLED AT 2022-04-24T20:53:15 ***
+srun: error: compute106: tasks 0-3: Killed
