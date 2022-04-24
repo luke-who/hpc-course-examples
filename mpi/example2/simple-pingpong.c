@@ -99,12 +99,13 @@ int processor_B( void )
   for (length=1; length<=10001; length+=1000) { 
     /* Process B receives and then sends the message back 1000 times */
     for (ii=0; ii<1000; ii++) {
-      MPI_Recv(buffer, length, MPI_FLOAT, proc_A, ping,
+      MPI_Recv(buffer, length, MPI_FLOAT, proc_A, ping, // proc_A -> proc_B
 	       MPI_COMM_WORLD, &status);
-      MPI_Ssend(buffer, length, MPI_FLOAT, proc_A, pong,
+      MPI_Ssend(buffer, length, MPI_FLOAT, proc_A, pong, // proc_B -> proc_A
 		MPI_COMM_WORLD);
     }
   }
 
   return EXIT_SUCCESS;
 }
+
