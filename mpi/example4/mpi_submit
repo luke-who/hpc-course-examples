@@ -42,4 +42,3 @@ srun --mpi=pmi2 ./non-blocking.exe
 echo
 echo "Running bugged-non-blocking.exe"
 srun --mpi=pmi2 ./bugged-non-blocking.exe
-``
