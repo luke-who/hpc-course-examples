@@ -70,9 +70,9 @@ int processor_A( void )
 
     /* Process A sends and then receives the message back 1000 times */
     for (ii=0; ii<1000; ii++){
-      MPI_Ssend(buffer, length, MPI_FLOAT, proc_B, ping,
+      MPI_Ssend(buffer, length, MPI_FLOAT, proc_B, ping, // proc_A -> proc_B
 		MPI_COMM_WORLD);
-      MPI_Recv(buffer, length, MPI_FLOAT, proc_B, pong,
+      MPI_Recv(buffer, length, MPI_FLOAT, proc_B, pong, // proc_B -> proc_A
 	       MPI_COMM_WORLD, &status);
     }
 
