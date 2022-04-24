@@ -3,17 +3,18 @@
 #SBATCH --nodes 1
 #SBATCH --ntasks-per-node 4
 #SBATCH --partition veryshort
-#SBATCH --reservation COSC024002
-#SBATCH --account COSC024002
+#SBATCH --reservation=COSC026662
+#SBATCH --account=COSC026662
 #SBATCH --job-name MPI
 #SBATCH --time 00:15:00
-#SBATCH --output OUT
+#SBATCH --output OUT.o
+#SBATCH --exclude=compute104,compute105,compute127,compute216,compute300
 #SBATCH --exclusive
 
 # This time, asking for 1 node with 4 tasks per node
 
 # Use Intel MPI (make sure you compile with the same module and 'mpiicc')
-module load languages/intel/2018-u3
+module load languages/intel/2020-u4
 
 
 # Print some information about the job
@@ -28,9 +29,14 @@ echo
 
 
 # Enable using `srun` with Intel MPI
-export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+# export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 
 # Run the parallel MPI executable
 # Just run the first binary: change this line to try out the others
-srun ./skeleton1.exe
-
+# srun --mpi=pmi2 ./skeleton1.exe
+# srun --mpi=pmi2 ./skeleton2.exe
+# srun --mpi=pmi2 ./skeleton2-simple2d.exe
+srun --mpi=pmi2 ./skeleton2-heated-plate.exe
+# srun --mpi=pmi2 ./skeleton3.exe
+# srun --mpi=pmi2 ./skeleton4.exe
+# srun --ntasks=2 ./deadlock.exe 1

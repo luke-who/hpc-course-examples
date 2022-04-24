@@ -1,0 +1,18 @@
+Intel(R) Parallel Studio XE 2020 Update 4 for Linux*
+Copyright 2009-2020 Intel Corporation.
+Running on host compute100.bc4.acrc.priv
+Time is Sun Apr 24 23:08:54 BST 2022
+Directory is /user/home/az16408/hpc-course-examples/mpi/example5
+Slurm job ID is 10244874
+
+This job runs on the following machines:
+compute100
+
+NROWS: 4
+NCOLS: 16
+Final temperature distribution over heated plate:
+  0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00 
+100.00  55.91  41.35  36.26  34.42  33.74  33.49  33.41  33.41  33.49  33.74  34.42  36.26  41.35  55.91 100.00 
+100.00  82.28  73.23  69.29  67.69  67.06  66.82  66.74  66.74  66.82  67.06  67.69  69.29  73.23  82.28 100.00 
+100.00 100.00 100.00 100.00 100.00 100.00 100.00 100.00 100.00 100.00 100.00 100.00 100.00 100.00 100.00 100.00 
+
