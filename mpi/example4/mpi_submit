@@ -31,14 +31,15 @@ echo
 # Enable using `srun` with Intel MPI
 # export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 
-# Run the parallel MPI executable
-# echo "Running blocking.exe"
-# srun --mpi=pmi2 ./blocking.exe
+Run the parallel MPI executable
+echo "Running blocking.exe"
+srun --mpi=pmi2 ./blocking.exe
 
-# echo
-# echo "Running non-blocking.exe"
-# srun --mpi=pmi2 ./non-blocking.exe
+echo
+echo "Running non-blocking.exe"
+srun --mpi=pmi2 ./non-blocking.exe
 
 echo
 echo "Running bugged-non-blocking.exe"
 srun --mpi=pmi2 ./bugged-non-blocking.exe
+``
