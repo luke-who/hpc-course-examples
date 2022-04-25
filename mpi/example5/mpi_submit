@@ -39,4 +39,4 @@ echo
 srun --mpi=pmi2 ./skeleton2-heated-plate.exe
 # srun --mpi=pmi2 ./skeleton3.exe
 # srun --mpi=pmi2 ./skeleton4.exe
-# srun --ntasks=2 ./deadlock.exe 1
+# srun --mpi=pmi2 --ntasks=2 ./deadlock.exe 1
