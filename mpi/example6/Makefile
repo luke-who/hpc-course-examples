@@ -18,6 +18,16 @@ $(EXES): %.exe : %.c
 
 .PHONY: clean all
 
+run:
+	sbatch mpi_submit
+	watch -n 1 squeue -u az16408
+	# while true; do squeue -u az16408;date ; sleep 1; done
+
+cancel:
+	scancel -u az16408
+cat:
+	cat OUT.o
+
 clean:
 	\rm -f $(EXES) 
 	\rm -f *.o

@@ -3,17 +3,18 @@
 #SBATCH --nodes 1
 #SBATCH --ntasks-per-node 28
 #SBATCH --partition veryshort
-#SBATCH --reservation COSC024002
-#SBATCH --account COSC024002
+#SBATCH --reservation=COSC026662
+#SBATCH --account=COSC026662
 #SBATCH --job-name MPI
 #SBATCH --time 00:15:00
-#SBATCH --output OUT
+#SBATCH --output OUT.o
+#SBATCH --exclude=compute[100-105,127,216,300]
 #SBATCH --exclusive
 
 # This time, asking for 1 node with 28 tasks per node
 
 # Use Intel MPI (make sure you compile with the same module and 'mpiicc')
-module load languages/intel/2018-u3
+module load languages/intel/2020-u4
 
 
 # Print some information about the job
@@ -28,16 +29,16 @@ echo
 
 
 # Enable using `srun` with Intel MPI
-export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+# export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 
 # Run the parallel MPI executable
 echo "Running broadcast.exe"
-srun ./broadcast.exe
+srun --mpi=pmi2 ./broadcast.exe
 
 echo
 echo "Running reduce_trapezoid.exe"
-srun --ntasks=15 ./reduce_trapezoid.exe
+srun --mpi=pmi2 --ntasks=15 ./reduce_trapezoid.exe
 
 echo
 echo "Running scatter_gather.exe"
-srun --ntasks=22 ./scatter_gather.exe
+srun --mpi=pmi2 --ntasks=22 ./scatter_gather.exe
